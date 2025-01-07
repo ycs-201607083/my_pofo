@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AuthenticationProvider from "./components/context/AuthenticationProvider.jsx";
+import axios from "axios";
+
+//axios 인터셉터 설정
+axios.interceptors.request.use(function (config) {
+  const token = localStorage.getItem("token");
+  console.log("token?", token);
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  // config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`;
+  return config;
+});
+
+const router = createBrowserRouter([{}]);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <AuthenticationProvider>
+      <RouterProvider router={router} />
+    </AuthenticationProvider>
+  );
 }
-
-export default App
