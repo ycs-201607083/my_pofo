@@ -6,8 +6,8 @@ function MainImage(props) {
     <Box>
       <Image
         w={"100%"}
-        h={"50%"}
-        src="src/components/image/portfolio_image.png"
+        h={"70%"}
+        src="src/components/image/portfo.png"
         alt="pf_image"
         position="absolute"
         top="0"
