@@ -1,15 +1,13 @@
 import { Box, Stack } from "@chakra-ui/react";
 import { Navbar } from "../../components/root/Navbar.jsx";
-import { Outlet } from "react-router-dom";
+import MainImage from "../MainImage.jsx";
 
 export function RootLayout() {
   return (
     <Stack>
-      <Box>
+      <Box position="relative" h="100vh">
         <Navbar />
-      </Box>
-      <Box>
-        <Outlet />
+        <MainImage />
       </Box>
     </Stack>
   );

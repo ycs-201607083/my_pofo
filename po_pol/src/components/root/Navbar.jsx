@@ -1,17 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Flex, IconButton, VStack } from "@chakra-ui/react";
-import React, { useContext, useState } from "react";
-import { AuthenticationContext } from "../context/AuthenticationProvider.jsx";
+import React, { useState } from "react";
 import "../../font/font.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 function TextItem({ children, ...rest }) {
   return (
     <Box
-      css={{ color: "white", fontFamily: "YanoljaFont" }}
+      css={{ color: "gray.300", fontFamily: "YanoljaFont" }}
       whiteSpace="nowrap"
-      _hover={{ textDecoration: "underline", cursor: "pointer" }}
-      fontWeight={"normal"}
+      _hover={{
+        cursor: "pointer",
+        color: "white",
+      }}
+      color={{ base: "black", md: "gray.300" }}
       {...rest}
     >
       {children}
@@ -22,10 +24,14 @@ function TextItem({ children, ...rest }) {
 function NavItem({ children, ...rest }) {
   return (
     <Box
-      css={{ color: "white", fontFamily: "YanoljaFont" }}
+      css={{ color: "gray.300", fontFamily: "YanoljaFont" }}
       whiteSpace="nowrap"
-      _hover={{ textDecoration: "underline", cursor: "pointer" }}
-      fontWeight={"normal"}
+      _hover={{
+        textDecoration: "underline",
+        cursor: "pointer",
+        color: "white",
+      }}
+      color={{ base: "white", md: "gray.300" }}
       {...rest}
     >
       {children}
@@ -36,9 +42,6 @@ function NavItem({ children, ...rest }) {
 export function Navbar() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { id, kakaoId, isAdmin, isAuthenticated, logout } = useContext(
-    AuthenticationContext,
-  );
 
   return (
     <Box mb={5}>
@@ -50,7 +53,7 @@ export function Navbar() {
         bgColor={"blue.500"}
         w="100%"
       >
-        <TextItem> KMS's portFolio </TextItem>
+        <TextItem> KMS's portfolio </TextItem>
 
         <Flex
           display={{ base: "none", md: "flex" }} // 화면이 작은 경우에는 숨기고, md 이상에서는 표시
@@ -66,7 +69,9 @@ export function Navbar() {
         {/* 햄버거 메뉴 아이콘 */}
         <IconButton
           aria-label="메뉴 열기"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => {
+            setIsMenuOpen(!isMenuOpen);
+          }}
           display={{ md: "none" }} // 화면이 작은 경우에만 햄버거 메뉴를 표시
           variant={"subtle"}
         >
