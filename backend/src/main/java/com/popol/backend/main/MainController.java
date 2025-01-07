@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/main")
 @RequiredArgsConstructor
 public class MainController {
+    
     @GetMapping("pol")
-    public String pol() {
-        return "Hello World";
+    public void pol() {
+        System.out.println("hdhd");
     }
 }

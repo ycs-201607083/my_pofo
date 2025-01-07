@@ -1,7 +1,7 @@
-import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthenticationProvider from "./components/context/AuthenticationProvider.jsx";
 import axios from "axios";
+import { RootLayout } from "./page/root/RootLayout.jsx";
 
 //axios 인터셉터 설정
 axios.interceptors.request.use(function (config) {
@@ -14,7 +14,12 @@ axios.interceptors.request.use(function (config) {
   return config;
 });
 
-const router = createBrowserRouter([{}]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+  },
+]);
 
 function App() {
   return (
@@ -23,3 +28,5 @@ function App() {
     </AuthenticationProvider>
   );
 }
+
+export default App;
