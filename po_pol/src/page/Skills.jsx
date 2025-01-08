@@ -21,13 +21,28 @@ function SkillStack({ items }) {
   ));
 }
 
+function SkillFullItem({ getItem, getIcon }) {
+  return (
+    <HStack wrap={"wrap"}>
+      <SkillItem IconType={getIcon} title={"Language"} />
+      <SkillStack items={getItem} />
+    </HStack>
+  );
+}
+
 function Skills(props) {
   const lang = [
     { text: "java", bgColor: "#663300" },
     { text: "kotlin", bgColor: "#6667AB" },
   ];
-  const fe = ["JSP", "React", "Html5", "Css", "Chakra-ui"];
-  const be = ["Spring"];
+  const fe = [
+    { text: "JSP", bgColor: "#4AA8D8" },
+    { text: "React", bgColor: "#87ceeb" },
+    { text: "Html5", bgColor: "#ff5500" },
+    { text: "Css", bgColor: "#1e90ff" },
+    { text: "Chakra-ui", bgColor: "#29beb2" },
+  ];
+  const be = [{ text: "Spring", bgColor: "#6db33f" }];
   const etc = ["android"];
 
   return (
@@ -41,13 +56,10 @@ function Skills(props) {
       <TitleText title={"기술"} color={"black"} />
       <Box bgColor={"#fcf1d0"} borderRadius={"50px"}>
         <Flex p={5} flexDirection="column">
-          <HStack wrap={"wrap"}>
-            <SkillItem IconType={FaCode} title={"Language"} />
-            <SkillStack items={lang} />
-          </HStack>
-          <SkillItem IconType={FaFileCode} title={"Frontend"} />
-          <SkillItem IconType={FaServer} title={"Backend"} />
-          <SkillItem IconType={FaEllipsis} title={"etc"} />
+          <SkillFullItem getItem={lang} getIcon={FaCode} />
+          <SkillFullItem getItem={fe} getIcon={FaFileCode} />
+          <SkillFullItem getItem={be} getIcon={FaServer} />
+          <SkillFullItem getItem={etc} getIcon={FaEllipsis} />
         </Flex>
       </Box>
     </Box>
