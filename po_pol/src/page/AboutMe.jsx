@@ -8,37 +8,56 @@ import {
   FaUser,
 } from "react-icons/fa6";
 import { FaBirthdayCake } from "react-icons/fa";
+import "../../src/font/font.css";
 
 // 아이콘을 as 속성으로 전달하는 방식
-function Item({ title, content, IconType }) {
+function Item({ title, content, IconType, flexBasis }) {
   return (
     <Box
+      css={{ fontFamily: "WantedFont" }}
       display="flex"
       flexDirection="column"
       alignItems="center" // 세로로 중앙 정렬
       justifyContent="center" // 가로로 중앙 정렬
       textAlign="center" // 텍스트도 중앙 정렬
       gap={2} // 아이템 간 간격 설정
+      flexBasis={flexBasis || "30%"} // 기본적으로 30% 너비
     >
-      <IconType />
-      <Text fontWeight="semibold" textStyle={"xs"}>
+      <IconType style={{ fontSize: "40px", color: "black" }} />
+      <Text textStyle={"xs"} color={"black"}>
         {title}
       </Text>
-      <Text textstyle={"xl"}>{content}</Text>
+      <Text fontWeight={"bold"} textStyle={"xs"} color={"black"}>
+        {content}
+      </Text>
     </Box>
   );
 }
 
 function AboutMe(props) {
   const PaddingTop = useBreakpointValue({
-    base: "150%", // 작은 화면에서 50%
-    sm: "70%",
-    md: "50%",
-    lg: "35%",
+    base: "5%", // 작은 화면에서 50%
+    /*  sm: "90%",
+      md: "55%",
+      lg: "10%",*/
   });
 
   return (
-    <Flex pt={PaddingTop}>
+    <Flex
+      direction="column"
+      pt={PaddingTop}
+      justify={"center"}
+      align={"center"}
+    >
+      <Text
+        fontSize="6xl"
+        fontWeight="bold"
+        mb={6}
+        color={"black"}
+        css={{ fontFamily: "YanoljaFont" }}
+      >
+        소개
+      </Text>
       <Flex gap={5} wrap={"wrap"} justify={"center"}>
         {/* JSX 구문에서 아이콘을 IconType으로 전달 */}
         <Item title={"이름"} content={"김민성"} IconType={FaUser} />
@@ -50,7 +69,7 @@ function AboutMe(props) {
         />
         <Item
           title={"주소"}
-          content={"서울특별시 관악구 미성동"}
+          content={"서울특별시 관악구"}
           IconType={FaLocationDot}
         />
         <Item
@@ -60,7 +79,13 @@ function AboutMe(props) {
         />
         <Item
           title={"학력"}
-          content={"유한대학교(컴퓨터 소프트웨어학과)"}
+          content={
+            <>
+              유한대학교
+              <br />
+              (소프트웨어학과)
+            </>
+          }
           IconType={FaSchool}
         />
       </Flex>

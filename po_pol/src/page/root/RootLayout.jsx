@@ -6,7 +6,7 @@ import AboutMe from "../AboutMe.jsx";
 export function RootLayout() {
   return (
     <Stack>
-      <Box h="100vh">
+      <Box bgColor={"white"}>
         <Navbar />
         <MainImage />
         <AboutMe />

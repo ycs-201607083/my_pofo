@@ -2,3 +2,8 @@
     font-family: 'YanoljaFont'; /* 폰트 이름 */
     src: url('Jalnan2.otf');
 }
+
+@font-face {
+    font-family: 'WantedFont';
+    src: url("WantedFont.otf");
+}
