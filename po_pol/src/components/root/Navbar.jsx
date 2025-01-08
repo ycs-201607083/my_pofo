@@ -103,6 +103,7 @@ export function Navbar() {
           }}
           display={{ md: "none" }} // 화면이 작은 경우에만 햄버거 메뉴를 표시
           variant={"ghost"}
+          color={"black"}
         >
           <GiHamburgerMenu />
         </IconButton>

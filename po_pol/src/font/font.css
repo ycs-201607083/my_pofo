@@ -7,3 +7,8 @@
     font-family: 'WantedFont';
     src: url("WantedFont.otf");
 }
+
+@font-face {
+    font-family: 'MoneyFont';
+    src: url("MoneyFont.ttf");
+}

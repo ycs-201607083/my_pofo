@@ -1,14 +1,15 @@
 import React from "react";
 import { Box, Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 import {
+  FaCalendar,
   FaEnvelope,
   FaLocationDot,
+  FaPen,
   FaPhone,
-  FaSchool,
   FaUser,
 } from "react-icons/fa6";
-import { FaBirthdayCake } from "react-icons/fa";
 import "../../src/font/font.css";
+import { TitleText } from "../components/common/Common.jsx";
 
 // 아이콘을 as 속성으로 전달하는 방식
 function Item({ title, content, IconType, flexBasis }) {
@@ -44,29 +45,19 @@ function AboutMe(props) {
 
   return (
     <Flex
+      p={"2rem"}
       direction="column"
       pt={PaddingTop}
       justify={"center"}
       align={"center"}
     >
-      <Text
-        fontSize="6xl"
-        fontWeight="bold"
-        mb={6}
-        color={"black"}
-        css={{ fontFamily: "YanoljaFont" }}
-      >
-        소개
-      </Text>
+      <TitleText title={"소개"} color={"black"} />
+
       <Flex gap={5} wrap={"wrap"} justify={"center"}>
         {/* JSX 구문에서 아이콘을 IconType으로 전달 */}
         <Item title={"이름"} content={"김민성"} IconType={FaUser} />
         <Item title={"전화번호"} content={"010-2909-0796"} IconType={FaPhone} />
-        <Item
-          title={"생년월일"}
-          content={"1997.04.10"}
-          IconType={FaBirthdayCake}
-        />
+        <Item title={"생년월일"} content={"1997.04.10"} IconType={FaCalendar} />
         <Item
           title={"주소"}
           content={"서울특별시 관악구"}
@@ -86,7 +77,7 @@ function AboutMe(props) {
               (소프트웨어학과)
             </>
           }
-          IconType={FaSchool}
+          IconType={FaPen}
         />
       </Flex>
     </Flex>
