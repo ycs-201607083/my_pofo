@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthenticationProvider from "./components/context/AuthenticationProvider.jsx";
 import axios from "axios";
-import { RootLayout } from "./page/root/RootLayout.jsx";
+import { RootLayout } from "./root/RootLayout.jsx";
 
 //axios 인터셉터 설정
 axios.interceptors.request.use(function (config) {
