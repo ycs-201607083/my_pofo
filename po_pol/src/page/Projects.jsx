@@ -90,11 +90,6 @@ function Projects(props) {
     md: "row",
   });
 
-  const colSize = useBreakpointValue({
-    base: "100%",
-    lg: "40%",
-  });
-
   const fishing_here = [
     "팀원들이 낚시를 좋아하여 다같이 사용하자는 취지에서 개발",
     "낚시 게시판이 주 목적이므로 게시판 외 구현",
