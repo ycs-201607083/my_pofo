@@ -53,26 +53,32 @@ function Skills(props) {
       textAlign="center" // 텍스트도 중앙 정렬
     >
       <TitleText title={"기술"} color={"black"} />
-      <Box bgColor={"#fcf1d0"} borderRadius={"50px"}>
-        <Flex p={5} flexDirection="column">
-          <SkillFullItem
-            getItem={lang}
-            getIcon={FaCode}
-            titleName={"language"}
-          />
-          <SkillFullItem
-            getItem={fe}
-            getIcon={FaFileCode}
-            titleName={"frontend"}
-          />
-          <SkillFullItem
-            getItem={be}
-            getIcon={FaServer}
-            titleName={"backend"}
-          />
-          <SkillFullItem getItem={etc} getIcon={FaEllipsis} titleName={"etc"} />
-        </Flex>
-      </Box>
+      <Flex justifyContent={"center"} alignItems={"center"} mt={5}>
+        <Box bgColor={"#fcf1d0"} borderRadius={"50px"} shadow={"md"} w={"60%"}>
+          <Flex p={5} flexDirection="column">
+            <SkillFullItem
+              getItem={lang}
+              getIcon={FaCode}
+              titleName={"language"}
+            />
+            <SkillFullItem
+              getItem={fe}
+              getIcon={FaFileCode}
+              titleName={"frontend"}
+            />
+            <SkillFullItem
+              getItem={be}
+              getIcon={FaServer}
+              titleName={"backend"}
+            />
+            <SkillFullItem
+              getItem={etc}
+              getIcon={FaEllipsis}
+              titleName={"etc"}
+            />
+          </Flex>
+        </Box>
+      </Flex>
     </Box>
   );
 }

@@ -12,3 +12,13 @@
     font-family: 'MoneyFont';
     src: url("MoneyFont.ttf");
 }
+
+@font-face {
+    font-family: 'MoneyFontR';
+    src: url("MoneyFont_R.ttf");
+}
+
+@font-face {
+    font-family: 'NonnoFont';
+    src: url("NonnoFont.otf");
+}

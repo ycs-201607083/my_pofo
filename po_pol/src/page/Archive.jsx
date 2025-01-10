@@ -7,7 +7,7 @@ import "../css/ArchiveCss.css";
 function Archive(props) {
   return (
     <Box w={"100%"} bgColor={"#343434"}>
-      <VStack wrap={"wrap"} p={10} gap={5}>
+      <VStack wrap={"wrap"} padding={"2rem"} gap={5}>
         <TitleText title={"저장소"} color={"white"} />
 
         <Flex
