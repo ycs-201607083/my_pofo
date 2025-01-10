@@ -56,6 +56,7 @@ function ProjectItemBox({
           ))}
         </Box>
         <Flex
+          onClick={() => console.log("이미지 클릭")}
           css={{ cursor: "pointer" }}
           align={"center"}
           p={1}

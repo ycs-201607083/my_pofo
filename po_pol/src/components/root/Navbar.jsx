@@ -11,7 +11,7 @@ function TextItem({ children, ...rest }) {
       whiteSpace="nowrap"
       _hover={{
         cursor: "pointer",
-        color: "black",
+        color: "#ff5500",
       }}
       color={{ base: "black", md: "gray.300" }}
       {...rest}
