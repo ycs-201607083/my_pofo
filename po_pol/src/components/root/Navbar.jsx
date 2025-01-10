@@ -5,8 +5,16 @@ import "../../font/font.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 function TextItem({ children, ...rest }) {
+  const ClickScrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Box
+      onClick={ClickScrollUp}
       css={{ color: "gray.300", fontFamily: "YanoljaFont" }}
       whiteSpace="nowrap"
       _hover={{
