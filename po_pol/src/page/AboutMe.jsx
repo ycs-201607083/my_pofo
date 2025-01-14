@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Box, Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 import {
   FaCalendar,
@@ -37,11 +37,12 @@ function Item({ title, content, IconType, flexBasis }) {
 
 function AboutMe(props) {
   const PaddingTop = useBreakpointValue({
-    base: "5%", // 작은 화면에서 50%
+    base: "5%",
     /*  sm: "90%",
       md: "55%",
       lg: "10%",*/
   });
+  const aboutMeRef = useRef(null);
 
   return (
     <Flex
@@ -51,7 +52,7 @@ function AboutMe(props) {
       justify={"center"}
       align={"center"}
     >
-      <TitleText title={"소개"} color={"black"} />
+      <TitleText title={"소개"} color={"black"} refName={aboutMeRef} />
 
       <Flex gap={5} wrap={"wrap"} justify={"center"}>
         {/* JSX 구문에서 아이콘을 IconType으로 전달 */}

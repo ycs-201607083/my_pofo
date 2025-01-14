@@ -1,7 +1,121 @@
-import React from "react";
-import { Box, Flex, Text, useBreakpointValue, VStack } from "@chakra-ui/react";
+import React, { useState } from "react";
+import {
+  Box,
+  Flex,
+  HStack,
+  Text,
+  useBreakpointValue,
+  VStack,
+} from "@chakra-ui/react";
 import { TitleText } from "../components/common/Common.jsx";
 import { FaImages } from "react-icons/fa";
+import { Button } from "../components/ui/button.jsx";
+import fish from "../data/fishing.json";
+import run from "../data/runing.json";
+import api from "../data/api.json";
+import calc from "../data/calc.json";
+import { FaArrowLeft, FaArrowRight, FaX } from "react-icons/fa6";
+
+function ImageViewer({ onClose, json, imageSize }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? json.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === json.length - 1 ? 0 : prev + 1));
+  };
+
+  const descriptionSize = useBreakpointValue({
+    base: "100%",
+    md: "45%",
+  });
+
+  return (
+    <VStack
+      display="flex"
+      position="fixed"
+      top={0}
+      left={0}
+      w="100%"
+      h="100%"
+      bgColor="rgba(0, 0, 0, 0.8)"
+      justifyContent="center"
+      alignItems="center"
+      zIndex={9999} // 배경 위로 올리기
+    >
+      <HStack wrap={"wrap"} w="90%" h={"90%"} justifyContent={"center"}>
+        <img
+          key={json[currentIndex].id}
+          src={json[currentIndex].path}
+          width={imageSize}
+          alt="pf_image"
+        />
+        <Box
+          wrap={"wrap"}
+          w={descriptionSize}
+          bgColor={"white"}
+          color={"black"}
+          borderRadius={"10px"}
+          padding={2}
+        >
+          <Text
+            style={{
+              fontWeight: "bold",
+              fontSize: "20px",
+              fontFamily: "MoneyFont",
+            }}
+            mb={4}
+          >
+            {json[currentIndex].id}
+          </Text>
+
+          <Text
+            key={json[currentIndex].id}
+            style={{
+              fontWeight: "SemiBold",
+              fontSize: "15px",
+              fontFamily: "WantedFont",
+            }}
+            mb={1}
+            whiteSpace="pre-line" // 줄 바꿈(\n)을 처리
+            p={1}
+          >
+            {json[currentIndex].description
+              .split("\n") // 줄 바꿈으로 나눔
+              .map((line) => `√ ${line}`) // 각 줄에 번호 추가
+              .join("\n")}
+          </Text>
+        </Box>
+      </HStack>
+
+      {/* 컨트롤 버튼 */}
+      <Box mt={4}>
+        <Button
+          postion={"fixed"}
+          onClick={handlePrev}
+          colorPalette="blue"
+          variant={"surface"}
+          mr={2}
+        >
+          <FaArrowLeft color={"blue"} />
+        </Button>
+        <Button
+          onClick={handleNext}
+          colorPalette="blue"
+          variant={"surface"}
+          mr={2}
+        >
+          <FaArrowRight color={"blue"} />
+        </Button>
+        <Button onClick={onClose} colorPalette="red" variant={"subtle"}>
+          <FaX color={"red"} />
+        </Button>
+      </Box>
+    </VStack>
+  );
+}
 
 function ProjectItemBox({
   title,
@@ -9,7 +123,10 @@ function ProjectItemBox({
   content,
   skills,
   description = [],
+  json,
+  imageSize,
 }) {
+  const [isViewerOpen, setIsViewerOpen] = useState(false); //이미지 띄우기
   const colSize = useBreakpointValue({
     base: "100%",
     lg: "40%",
@@ -24,7 +141,7 @@ function ProjectItemBox({
     >
       <VStack p={2} align={"start"}>
         <Box bgColor={"#0047AB"} borderRadius={"7px"}>
-          <Text p={2} style={{ fontFamily: "NonnoFont" }}>
+          <Text color={"white"} p={2} style={{ fontFamily: "NonnoFont" }}>
             {title}
           </Text>
         </Box>
@@ -56,7 +173,7 @@ function ProjectItemBox({
           ))}
         </Box>
         <Flex
-          onClick={() => console.log("이미지 클릭")}
+          onClick={() => setIsViewerOpen(true)}
           css={{ cursor: "pointer" }}
           align={"center"}
           p={1}
@@ -69,6 +186,13 @@ function ProjectItemBox({
             이미지
           </Text>
         </Flex>
+        {isViewerOpen && (
+          <ImageViewer
+            onClose={() => setIsViewerOpen(false)}
+            json={json}
+            imageSize={imageSize}
+          />
+        )}
         <Box
           w={"100%"}
           bgColor={"#f9c51D33"}
@@ -91,17 +215,29 @@ function Projects(props) {
     md: "row",
   });
 
+  const webBreakPoint = useBreakpointValue({
+    base: "100%",
+    sm: "80%",
+    md: "50%",
+    lg: "25%",
+  });
+
+  const mobileBreakPoint = useBreakpointValue({
+    base: "70%",
+    md: "20%",
+  });
+
   const fishing_here = [
     "팀원들이 낚시를 좋아하여 다같이 사용하자는 취지에서 개발",
     "낚시 게시판이 주 목적이므로 게시판 외 구현",
     "kakaoAPI 카카오맵을 활용하여 위치 공유 기능 구현",
-    "반응형 웹으로 구현",
   ];
 
   const kakao_weather_api = [
     "카카오 로그인 구현",
     "카카오맵에 마커를 구현해 현재 위치 또는 지도에 마커를 찍어 날씨 확인 가능",
     "상단바에 지역명을 검색하여 해당 지역으로 이동 및 현재 날씨 확인 가능",
+    "glide를 사용해 카카오 프로필을 내 현재 위치 또는 클릭된 장소에 표시",
   ];
 
   const calculator = [
@@ -143,6 +279,8 @@ function Projects(props) {
           }
           dateAndMember={"24.11.26 ~ 24.12.24 (3인 프로젝트)"}
           description={fishing_here}
+          json={fish}
+          imageSize={webBreakPoint}
         />
 
         <ProjectItemBox
@@ -151,6 +289,8 @@ function Projects(props) {
           skills={"Android, Kotlin, REST API"}
           dateAndMember={"24.07.01 ~ 24.07.30 (개인 프로젝트)"}
           description={kakao_weather_api}
+          json={api}
+          imageSize={mobileBreakPoint}
         />
 
         <ProjectItemBox
@@ -159,6 +299,8 @@ function Projects(props) {
           skills={"Android, Kotlin, Jetpack, RoomDB, MVVM"}
           dateAndMember={"24.03.28 ~ 24.06.20 (개인 프로젝트)"}
           description={calculator}
+          json={calc}
+          imageSize={mobileBreakPoint}
         />
 
         <ProjectItemBox
@@ -169,6 +311,8 @@ function Projects(props) {
           skills={"Android, Kotlin, 카카오맵API"}
           dateAndMember={"23.08.08 ~ 23.09.04 (개인 프로젝트)"}
           description={interval_training}
+          json={run}
+          imageSize={mobileBreakPoint}
         />
       </Flex>
     </Flex>

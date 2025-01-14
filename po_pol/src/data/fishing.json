@@ -1,0 +1,47 @@
+[
+  {
+    "id": "메인화면 페이지",
+    "path": "../src/components/image/fishing_here/메인화면.JPG",
+    "description": "각 항목들과 공지사항, 로그인 회원가입을 할 수 있도록 구현"
+  },
+  {
+    "id": "메인화면 날씨확인",
+    "path": "../src/components/image/fishing_here/날씨확인.JPG",
+    "description": "지역명을 검색하여 지역의 날씨를 볼 수 있도록 구현"
+  },
+  {
+    "id": "회원가입 페이지",
+    "path": "../src/components/image/fishing_here/회원가입.JPG",
+    "description": "각 항목에 정규식을 사용하여 구현\n주소 입력 시 다음API를 사용"
+  },
+  {
+    "id": "로그인 페이지",
+    "path": "../src/components/image/fishing_here/로그인.JPG",
+    "description": "modal 형식으로 구현"
+  },
+  {
+    "id": "게시글 작성 페이지",
+    "path": "../src/components/image/fishing_here/글작성.JPG",
+    "description": "작성, 내용, 종류 중 하나라도 입력이 되지 않았다면 저장 불가\naws서버와 연결하여 사진 업로드 시 서버에 작성자명으로 사진 저장\n카카오맵 api와 다음 주소api를 사용해 주소를 검색 후 마커를 찍어 DB저장"
+  },
+  {
+    "id": "게시글 보기 페이지",
+    "path": "../src/components/image/fishing_here/게시글보기.JPG",
+    "description": "게시글 작성한 제목, 내용, 사진, 카카오맵 지도 마커 위치 출력"
+  },
+  {
+    "id": "게시글 수정 페이지",
+    "path": "../src/components/image/fishing_here/게시글 수정.JPG",
+    "description": "제목,내용,종류의 값이 비었거나 null이라면 저장 불가\n사진 수정 가능\n기존 카카오맵 위치는 빨간색 테두리, 수정할 카카오맵 위치는 파란색 테두리로 디자인"
+  },
+  {
+    "id": "이미지 크게 보기",
+    "path": "../src/components/image/fishing_here/이미지 크게 보기.JPG",
+    "description": "이미지를 클릭하여 크게 보기 가능"
+  },
+  {
+    "id": "카카오맵 전체보기",
+    "path": "../src/components/image/fishing_here/카카오맵.JPG",
+    "description": "메인 페이지에 낚시터 찾기 배너를 통해 각 게시글마다 카카오맵으로 위치를 저장했다면 메인 카카오맵에서 전체 확인 가능"
+  }
+]

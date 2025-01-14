@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { Box, Flex, IconButton, VStack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import "../../font/font.css";
@@ -29,8 +28,12 @@ function TextItem({ children, ...rest }) {
   );
 }
 
-//네이게이션 아이템
+// 네비게이션 아이템
 function NavItem({ children, ...rest }) {
+  // 선택한 메뉴 위치로 스크롤
+  const handleMenuClick = (menu) => {
+    sectionRefs[menu].current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <Box
       css={{ color: "#e9ecef", fontFamily: "YanoljaFont" }}
@@ -38,7 +41,7 @@ function NavItem({ children, ...rest }) {
       _hover={{
         textDecoration: "underline",
         cursor: "pointer",
-        color: "black",
+        color: "#ff5500",
       }}
       color={{ base: "black", md: "gray.300" }}
       {...rest}
@@ -49,7 +52,6 @@ function NavItem({ children, ...rest }) {
 }
 
 export function Navbar() {
-  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false); //크기에 따라 햄버거 메뉴로 표시
   const [scrollPosition, setScrollPosition] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -83,17 +85,17 @@ export function Navbar() {
       <Flex
         gap={4}
         p={4}
-        justify="space-between" // 왼쪽과 오른쪽 아이템 간의 공간을 배분
+        justify="space-between"
         alignItems="center"
         bgColor={navbarBgColor}
         w="100%"
-        position="fixed" // 화면에 고정
-        transition="background-color 0.3s ease-in-out" // 부드러운 전환 효과
+        position="fixed"
+        transition="background-color 0.3s ease-in-out"
       >
         <TextItem> KMS's portfolio </TextItem>
 
         <Flex
-          display={{ base: "none", md: "flex" }} // 화면이 작은 경우에는 숨기고, md 이상에서는 표시
+          display={{ base: "none", md: "flex" }}
           gap={10}
           justifyContent="space-between"
         >
@@ -109,7 +111,7 @@ export function Navbar() {
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
-          display={{ md: "none" }} // 화면이 작은 경우에만 햄버거 메뉴를 표시
+          display={{ md: "none" }}
           variant={"ghost"}
           color={"black"}
         >
@@ -117,19 +119,19 @@ export function Navbar() {
         </IconButton>
       </Flex>
 
-      {/* 햄버거 메뉴: 화면 크기가 작을 때 나타남 */}
+      {/* 햄버거 메뉴 */}
       {isMenuOpen && (
         <VStack
           bg="#e9ecef"
           p={4}
           spacing={4}
           display={{ base: "flex", md: "none" }}
-          position="fixed" // 화면에 고정
-          top="60px" // Navbar 아래에 위치
+          position="fixed"
+          top="60px"
           w={"100%"}
         >
           <NavItem>소개</NavItem>
-          <NavItem>기술소개</NavItem>
+          <NavItem>기술</NavItem>
           <NavItem>저장소</NavItem>
           <NavItem>프로젝트</NavItem>
         </VStack>

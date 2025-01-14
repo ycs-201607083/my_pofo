@@ -1,0 +1,22 @@
+[
+  {
+    "id": "카카오 로그인",
+    "path": "../src/components/image/kakao_api/1.webp",
+    "description": "카카오 로그인 구현"
+  },
+  {
+    "id": "현재 위치의 날씨를 출력",
+    "path": "../src/components/image/kakao_api/2.webp",
+    "description": "오른쪽 하단에 마크를 클릭하여 현재위치로 이동하고 날씨확인\n내 위치에 glide를 사용해 카카오 프로필로 표시"
+  },
+  {
+    "id": "맵의 다른 지역 클릭 시 날씨 출력",
+    "path": "../src/components/image/kakao_api/3.webp",
+    "description": "맵에 날씨를 알고 싶은 지역을 클릭하여 날씨 확인\n클릭된 장소 또한 내 프로필을 잠깐 띄어 위치를 알 수 있도록 구현"
+  },
+  {
+    "id": "상단 검색바를 통해 지역으로 바로 이동하기",
+    "path": "../src/components/image/kakao_api/4.webp",
+    "description": "상단 검색바에 원하는 지역명을 검색하여 지역으로 이동하고 날씨 확인 가능"
+  }
+]
