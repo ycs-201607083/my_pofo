@@ -223,8 +223,8 @@ function Projects(props) {
   });
 
   const mobileBreakPoint = useBreakpointValue({
-    base: "70%",
-    md: "20%",
+    base: "50%",
+    md: "10%",
   });
 
   const fishing_here = [

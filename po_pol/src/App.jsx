@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import AuthenticationProvider from "./components/context/AuthenticationProvider.jsx";
 import { RootLayout } from "./root/RootLayout.jsx";
 import Skills from "./page/Skills.jsx";
@@ -32,7 +36,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthenticationProvider>
-      <RouterProvider router={router} />
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <RouterProvider router={router} />
+      </BrowserRouter>
     </AuthenticationProvider>
   );
 }
