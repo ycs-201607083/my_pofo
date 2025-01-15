@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthenticationProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} basename={import.meta.env.PUBLIC_URL} />
     </AuthenticationProvider>
   );
 }
