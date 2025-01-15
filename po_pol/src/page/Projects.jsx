@@ -91,7 +91,7 @@ function ImageViewer({ onClose, json, imageSize }) {
       </HStack>
 
       {/* 컨트롤 버튼 */}
-      <Box mt={4}>
+      <Box mb={100}>
         <Button
           postion={"fixed"}
           onClick={handlePrev}

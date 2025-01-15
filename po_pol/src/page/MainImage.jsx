@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Image } from "@chakra-ui/react";
+import mainImage from "../components/image/portfo.png";
 
 function MainImage(props) {
   return (
@@ -7,7 +8,7 @@ function MainImage(props) {
       <Image
         w={"100%"}
         h={"70%"}
-        src="src/components/image/portfo.png"
+        src={mainImage}
         alt="pf_image"
         top="0"
         left="0"

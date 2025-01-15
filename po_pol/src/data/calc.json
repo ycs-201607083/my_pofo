@@ -1,7 +1,7 @@
 [
   {
     "id": "메인화면 계산기",
-    "path": "../src/components/image/calc/1.webp",
+    "path": "../components/image/calc/1.webp",
     "description": "메인화면에 사칙연산이 가능하도록 키보드 커스텀 구현"
   },
   {

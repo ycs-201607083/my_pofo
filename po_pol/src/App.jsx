@@ -8,7 +8,7 @@ import AboutMe from "./page/AboutMe.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/my_pofo",
     element: <RootLayout />,
   },
   {
