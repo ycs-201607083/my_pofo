@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthenticationProvider>
-      <RouterProvider router={router} basename={import.meta.env.PUBLIC_URL} />
+      <RouterProvider router={router} basename="/my_pofo" />
     </AuthenticationProvider>
   );
 }
