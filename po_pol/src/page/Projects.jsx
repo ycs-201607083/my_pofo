@@ -16,6 +16,7 @@ import api from "../data/api.json";
 import calc from "../data/calc.json";
 import { FaArrowLeft, FaArrowRight, FaX } from "react-icons/fa6";
 
+//프로젝트 이미지
 function ImageViewer({ onClose, json, imageSize }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -90,27 +91,27 @@ function ImageViewer({ onClose, json, imageSize }) {
         </Box>
       </HStack>
 
-      {/* 컨트롤 버튼 */}
-      <Box mb={100}>
-        <Button
-          postion={"fixed"}
-          onClick={handlePrev}
-          colorPalette="blue"
-          variant={"surface"}
-          mr={2}
-        >
-          <FaArrowLeft color={"blue"} />
-        </Button>
-        <Button
-          onClick={handleNext}
-          colorPalette="blue"
-          variant={"surface"}
-          mr={2}
-        >
-          <FaArrowRight color={"blue"} />
-        </Button>
-        <Button onClick={onClose} colorPalette="red" variant={"subtle"}>
-          <FaX color={"red"} />
+      <Box display="flex" justifyContent="space-between" w="80%">
+        <Box display="flex">
+          <Button
+            onClick={handlePrev}
+            colorPalette="blue"
+            variant="surface"
+            mr={2}
+          >
+            <FaArrowLeft color="blue" />
+          </Button>
+          <Button
+            onClick={handleNext}
+            colorPalette="blue"
+            variant="surface"
+            mr={2}
+          >
+            <FaArrowRight color="blue" />
+          </Button>
+        </Box>
+        <Button onClick={onClose} colorPalette="red" variant="subtle">
+          <FaX color="red" />
         </Button>
       </Box>
     </VStack>
@@ -231,6 +232,16 @@ function Projects(props) {
     "팀원들이 낚시를 좋아하여 다같이 사용하자는 취지에서 개발",
     "낚시 게시판이 주 목적이므로 게시판 외 구현",
     "kakaoAPI 카카오맵을 활용하여 위치 공유 기능 구현",
+    <>
+      <Text
+        css={{ fontWeight: "bold", color: "#0047AB", cursor: "pointer" }}
+        onClick={() => {
+          window.open("http://13.125.220.196:8080/", "_blank");
+        }}
+      >
+        사이트 확인하기
+      </Text>
+    </>,
   ];
 
   const kakao_weather_api = [

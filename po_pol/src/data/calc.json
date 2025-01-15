@@ -1,27 +1,27 @@
 [
   {
     "id": "메인화면 계산기",
-    "path": "../components/image/calc/1.webp",
+    "path": "/my_pofo/assets/image/calc/1.webp",
     "description": "메인화면에 사칙연산이 가능하도록 키보드 커스텀 구현"
   },
   {
     "id": "계산기 목록",
-    "path": "../src/components/image/calc/2.webp",
+    "path": "/my_pofo/assets/image/calc/2.webp",
     "description": "각 계산가능한 목록들을 확인 가능"
   },
   {
     "id": "각 계산기별 화면",
-    "path": "../src/components/image/calc/3.webp",
+    "path": "/my_pofo/assets/image/calc/3.webp",
     "description": "계산기에 사용될 값과 값이 입력될 수 있도록 구현\n MVVM패턴으로 구현해 리컴포즈 되더라도 값 유지"
   },
   {
     "id": "계산 결과 출력",
-    "path": "../src/components/image/calc/4.webp",
+    "path": "/my_pofo/assets/image/calc/4.webp",
     "description": "계산 후 값 출력\n출력 된 값은 RoomDB를 사용해 값을 저장\n계산 된 값이 null, NaN일 경우 값이 저장되지 않도록 구현"
   },
   {
     "id": "계산 결과 저장",
-    "path": "../src/components/image/calc/5.webp",
+    "path": "/my_pofo/assets/image/calc/5.webp",
     "description": "DB에 저장된 값(계산기 제목, 계산에 사용된 값, 결과 값)을 확인 가능"
   }
 ]
