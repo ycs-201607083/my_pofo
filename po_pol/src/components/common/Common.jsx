@@ -20,6 +20,7 @@ export function SkillItem({ IconType, title }) {
 export function TitleText({ color, title }) {
   return (
     <Text
+      pt={6}
       fontSize="6xl"
       fontWeight="bold"
       mb={6}

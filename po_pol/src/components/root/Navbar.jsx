@@ -147,35 +147,41 @@ export function Navbar({ refs }) {
           p={4}
           spacing={4}
           display={{ base: "flex", md: "none" }}
-          position="fixed"
+          position={"fixed"}
           top="60px"
           w={"100%"}
         >
           <NavItem
-            onClick={() =>
-              refs.aboutMe.current.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => {
+              refs.aboutMe.current.scrollIntoView({ behavior: "smooth" });
+              setIsMenuOpen(false);
+            }}
           >
             소개
           </NavItem>
           <NavItem
-            onClick={() =>
-              refs.skills.current.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => {
+              refs.skills.current.scrollIntoView({ behavior: "smooth" });
+              setIsMenuOpen(false);
+            }}
           >
             기술
           </NavItem>
           <NavItem
-            onClick={() =>
-              refs.archive.current.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => {
+              refs.archive.current.scrollIntoView({ behavior: "smooth" });
+              setIsMenuOpen(false);
+            }}
           >
             저장소
           </NavItem>
           <NavItem
-            onClick={() =>
-              refs.projects.current.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => {
+              refs.projects.current.scrollIntoView({
+                behavior: "smooth",
+              });
+              setIsMenuOpen(false);
+            }}
           >
             프로젝트
           </NavItem>

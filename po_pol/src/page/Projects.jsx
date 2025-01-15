@@ -256,6 +256,7 @@ function Projects(props) {
 
   return (
     <Flex
+      pt={6}
       justifyContent={"center"}
       alignItems={"center"}
       mt={5}
