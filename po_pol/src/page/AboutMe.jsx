@@ -35,7 +35,7 @@ function Item({ title, content, IconType, flexBasis }) {
   );
 }
 
-function AboutMe(props) {
+function AboutMe() {
   const PaddingTop = useBreakpointValue({
     base: "5%",
     /*  sm: "90%",

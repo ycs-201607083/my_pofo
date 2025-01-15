@@ -29,13 +29,10 @@ function TextItem({ children, ...rest }) {
 }
 
 // 네비게이션 아이템
-function NavItem({ children, ...rest }) {
-  // 선택한 메뉴 위치로 스크롤
-  const handleMenuClick = (menu) => {
-    sectionRefs[menu].current.scrollIntoView({ behavior: "smooth" });
-  };
+function NavItem({ onClick, children, ...rest }) {
   return (
     <Box
+      onClick={onClick}
       css={{ color: "#e9ecef", fontFamily: "YanoljaFont" }}
       whiteSpace="nowrap"
       _hover={{
@@ -51,7 +48,7 @@ function NavItem({ children, ...rest }) {
   );
 }
 
-export function Navbar() {
+export function Navbar({ refs }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); //크기에 따라 햄버거 메뉴로 표시
   const [scrollPosition, setScrollPosition] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -99,10 +96,34 @@ export function Navbar() {
           gap={10}
           justifyContent="space-between"
         >
-          <NavItem>소개</NavItem>
-          <NavItem>기술</NavItem>
-          <NavItem>저장소</NavItem>
-          <NavItem>프로젝트</NavItem>
+          <NavItem
+            onClick={() =>
+              refs.aboutMe.current.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            소개
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              refs.skills.current.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            기술
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              refs.archive.current.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            저장소
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              refs.projects.current.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            프로젝트
+          </NavItem>
         </Flex>
 
         {/* 햄버거 메뉴 아이콘 */}
@@ -130,10 +151,34 @@ export function Navbar() {
           top="60px"
           w={"100%"}
         >
-          <NavItem>소개</NavItem>
-          <NavItem>기술</NavItem>
-          <NavItem>저장소</NavItem>
-          <NavItem>프로젝트</NavItem>
+          <NavItem
+            onClick={() =>
+              refs.aboutMe.current.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            소개
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              refs.skills.current.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            기술
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              refs.archive.current.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            저장소
+          </NavItem>
+          <NavItem
+            onClick={() =>
+              refs.projects.current.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            프로젝트
+          </NavItem>
         </VStack>
       )}
     </Box>
