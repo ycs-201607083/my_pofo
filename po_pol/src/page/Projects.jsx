@@ -93,25 +93,15 @@ function ImageViewer({ onClose, json, imageSize }) {
 
       <Box display="flex" justifyContent="space-between" w="80%">
         <Box display="flex">
-          <Button
-            onClick={handlePrev}
-            colorPalette="blue"
-            variant="surface"
-            mr={2}
-          >
-            <FaArrowLeft color="blue" />
+          <Button onClick={handlePrev} colorPalette="blue" mr={2}>
+            <FaArrowLeft color="white" />
           </Button>
-          <Button
-            onClick={handleNext}
-            colorPalette="blue"
-            variant="surface"
-            mr={2}
-          >
-            <FaArrowRight color="blue" />
+          <Button onClick={handleNext} colorPalette="blue" mr={2}>
+            <FaArrowRight color="white" />
           </Button>
         </Box>
-        <Button onClick={onClose} colorPalette="red" variant="subtle">
-          <FaX color="red" />
+        <Button onClick={onClose} colorPalette="red">
+          <FaX color="white" />
         </Button>
       </Box>
     </VStack>
@@ -224,7 +214,7 @@ function Projects(props) {
   });
 
   const mobileBreakPoint = useBreakpointValue({
-    base: "50%",
+    base: "60%",
     md: "10%",
   });
 
